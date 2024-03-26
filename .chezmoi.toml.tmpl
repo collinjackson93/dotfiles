@@ -1,0 +1,15 @@
+{{/* boolean feature flags */}}
+{{- $work := false -}}{{/* true if this is a work machine */}}
+
+{{- if eq .chezmoi.username "cjackson" -}}
+{{-   $work = true -}}
+{{- end -}}
+
+{{- $email := "collinjackson@duck.com" -}}
+{{- if $work -}}
+{{-   $email = "cjackson@belvederetrading.com" -}}
+{{- end -}}
+
+[data]
+  email = {{ $email | quote }}
+  work = {{ $work }}
